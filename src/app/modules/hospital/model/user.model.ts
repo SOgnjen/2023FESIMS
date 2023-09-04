@@ -3,7 +3,7 @@ import { UserRole } from './user-role.enum';
 
 export class User {
   id: number = 0;
-  email: string = '';
+  emails: string = '';
   password: string = '';
   firstName: string = '';
   lastName: string = '';
@@ -16,7 +16,7 @@ export class User {
   public constructor(obj?: any) {
     if (obj) {
       this.id = obj.id;
-      this.email = obj.email;
+      this.emails = obj.emails;
       this.password = obj.password;
       this.firstName = obj.firstName;
       this.lastName = obj.lastName;

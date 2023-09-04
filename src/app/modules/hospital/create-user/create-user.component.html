@@ -2,7 +2,7 @@
   <form (ngSubmit)="createUser()">
     <mat-form-field appearance="fill">
       <mat-label>Email</mat-label>
-      <input matInput [(ngModel)]="user.email" name="email" required />
+      <input matInput [(ngModel)]="user.emails" name="emails" required />
     </mat-form-field>
 
     <mat-form-field appearance="fill">
@@ -57,11 +57,11 @@
     <mat-form-field appearance="fill">
       <mat-label>Gender</mat-label>
       <mat-select [(ngModel)]="user.gender" name="gender" required>
-        <mat-option value="{{ Gender.Male }}">Male</mat-option>
-        <mat-option value="{{ Gender.Female }}">Female</mat-option>
+        <mat-option [value]="Gender.Male">Male</mat-option>
+        <mat-option [value]="Gender.Female">Female</mat-option>
       </mat-select>
     </mat-form-field>
 
-    <button mat-stroked-button (click)="createUser()">Submit</button>
+    <button type="submit" mat-stroked-button>Submit</button>
   </form>
 </div>

@@ -27,6 +27,6 @@ export class CreateUserComponent {
   }
 
   private isValidInput(): boolean {
-    return this.user?.email != '' && this.user?.jmbg.toString() != '';
+    return this.user?.emails != '' && this.user?.jmbg.toString() != '';
   }
 }
