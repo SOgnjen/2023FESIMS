@@ -14,13 +14,18 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatOptionModule } from '@angular/material/core';
 import { UsersComponent } from './users/users.component';
+import { UserDetailComponent } from './user-detail/user-detail.component';
+import { UpdateUserComponent } from './update-user/update-user.component';
 
 const routes: Routes = [
   { path: 'rooms', component: RoomsComponent },
   { path: 'rooms/add', component: CreateRoomComponent },
   { path: 'rooms/:id', component: RoomDetailComponent },
   { path: 'rooms/:id/update', component: UpdateRoomComponent },
+  { path: 'users', component: UsersComponent },
   { path: 'users/add', component: CreateUserComponent },
+  { path: 'users/:id', component: UserDetailComponent },
+  { path: 'users/:id/update', component: UpdateUserComponent },
 ];
 
 @NgModule({
@@ -31,6 +36,8 @@ const routes: Routes = [
     UpdateRoomComponent,
     CreateUserComponent,
     UsersComponent,
+    UserDetailComponent,
+    UpdateUserComponent,
   ],
   imports: [
     CommonModule,

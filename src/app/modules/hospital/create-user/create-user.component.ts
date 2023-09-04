@@ -22,7 +22,7 @@ export class CreateUserComponent {
   public createUser() {
     if (!this.isValidInput()) return;
     this.userService.createUser(this.user).subscribe((res) => {
-      this.router.navigate(['/users']);
+      this.router.navigate(['/home']);
     });
   }
 

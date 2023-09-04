@@ -1,0 +1,45 @@
+<div *ngIf="user">
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Id</mat-label>
+      <input matInput [(ngModel)]="user.id" disabled />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput [(ngModel)]="user.emails" /> </mat-form-field
+    ><br />
+    <mat-form-field appearance="fill">
+      <mat-label>Password</mat-label>
+      <input matInput [(ngModel)]="user.password" /> </mat-form-field
+    ><br />
+    <mat-form-field appearance="fill">
+      <mat-label>First Name</mat-label>
+      <input matInput [(ngModel)]="user.firstName" /> </mat-form-field
+    ><br />
+    <mat-form-field appearance="fill">
+      <mat-label>Last Name</mat-label>
+      <input matInput [(ngModel)]="user.lastName" /> </mat-form-field
+    ><br />
+    <mat-form-field appearance="fill">
+      <mat-label>Role</mat-label>
+      <input matInput [(ngModel)]="user.role" disabled /> </mat-form-field
+    ><br />
+    <mat-form-field appearance="fill">
+      <mat-label>Address</mat-label>
+      <input matInput [(ngModel)]="user.address" /> </mat-form-field
+    ><br />
+    <mat-form-field appearance="fill">
+      <mat-label>Phone Number</mat-label>
+      <input matInput [(ngModel)]="user.phoneNumber" /> </mat-form-field
+    ><br />
+    <mat-form-field appearance="fill">
+      <mat-label>JMBG</mat-label>
+      <input matInput [(ngModel)]="user.jmbg" disabled /> </mat-form-field
+    ><br />
+    <mat-form-field appearance="fill">
+      <mat-label>Gender</mat-label>
+      <input matInput [(ngModel)]="user.gender" disabled /> </mat-form-field
+    ><br />
+    <button mat-stroked-button (click)="updateUser()">Submit</button>
+  </div>
+</div>

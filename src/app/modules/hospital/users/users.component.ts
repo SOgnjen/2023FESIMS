@@ -12,9 +12,7 @@ import { Router } from '@angular/router';
 export class UsersComponent implements OnInit {
   public dataSource = new MatTableDataSource<User>();
   public displayedColumns = [
-    'id',
-    'email',
-    'password',
+    'emails',
     'firstName',
     'lastName',
     'role',
@@ -34,6 +32,10 @@ export class UsersComponent implements OnInit {
       this.users = res;
       this.dataSource.data = this.users;
     });
+  }
+
+  public chooseUser(id: number) {
+    this.router.navigate(['/users', id]);
   }
 
   public updateUser(id: number) {
