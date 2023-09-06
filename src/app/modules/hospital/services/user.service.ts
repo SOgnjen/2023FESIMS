@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User } from '../model/user.model';
@@ -40,6 +40,14 @@ export class UserService {
 
   updateUser(user: any): Observable<any> {
     return this.http.put<any>(this.apiHost + 'api/users/' + user.id, user, {
+      headers: this.headers,
+    });
+  }
+
+  login(email: string, password: string): Observable<any> {
+    const body = { email, password };
+
+    return this.http.post(this.apiHost + 'api/users/login', body, {
       headers: this.headers,
     });
   }

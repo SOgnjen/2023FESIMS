@@ -1,1 +1,29 @@
-<p>home works!</p>
+<div class="container">
+  <h1>Welcome to the Home Page</h1>
+  <div class="login-form">
+    <form (ngSubmit)="onLoginSubmit()">
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          [(ngModel)]="email"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          [(ngModel)]="password"
+          required
+        />
+      </div>
+      <button type="submit">Login</button>
+    </form>
+    <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+  </div>
+</div>
