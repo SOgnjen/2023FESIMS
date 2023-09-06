@@ -1,5 +1,7 @@
+<div class="title-bubble">
+  <h1>Welcome to the Hospital Application</h1>
+</div>
 <div class="container">
-  <h1>Welcome to the Home Page</h1>
   <div class="login-form">
     <form (ngSubmit)="onLoginSubmit()">
       <div class="form-group">
@@ -10,6 +12,7 @@
           name="email"
           [(ngModel)]="email"
           required
+          class="input-field"
         />
       </div>
       <div class="form-group">
@@ -20,13 +23,19 @@
           name="password"
           [(ngModel)]="password"
           required
+          class="input-field"
         />
       </div>
-      <button type="submit">Login</button>
+      <button type="submit" class="login-button">Login</button>
     </form>
     <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
   </div>
-  <div *ngIf="loggedInUser">
-    <p>Welcome, {{ loggedInUser.firstName }} {{ loggedInUser.lastName }}</p>
+  <div *ngIf="loggedInUser" class="user-info">
+    <p>
+      Welcome,
+      <span class="user-name"
+        >{{ loggedInUser.firstName }} {{ loggedInUser.lastName }}</span
+      >
+    </p>
   </div>
 </div>

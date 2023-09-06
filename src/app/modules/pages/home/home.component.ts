@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../hospital/services/user.service';
 import { User } from '../../hospital/model/user.model';
+import { Router } from '@angular/router';
+import { UserRole } from '../../hospital/model/user-role.enum';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +15,7 @@ export class HomeComponent implements OnInit {
   errorMessage = '';
   loggedInUser: User | null = null;
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService, private router: Router) {}
 
   ngOnInit(): void {}
 
@@ -25,6 +27,21 @@ export class HomeComponent implements OnInit {
         (response) => {
           console.log('Successful login:', response);
           this.loggedInUser = response.user;
+
+          switch (this.loggedInUser?.role) {
+            case UserRole.Role_User:
+              this.router.navigate(['user-home']);
+              break;
+            case UserRole.Role_Medic:
+              this.router.navigate(['medic-home']);
+              break;
+            case UserRole.Role_Administrator:
+              this.router.navigate(['admin-home']);
+              break;
+            default:
+              // Handle other roles or scenarios
+              break;
+          }
         },
         (error) => {
           if (error.status === 401) {
