@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../hospital/services/user.service';
+import { User } from '../../hospital/model/user.model';
 
 @Component({
   selector: 'app-home',
@@ -10,22 +11,22 @@ export class HomeComponent implements OnInit {
   email = '';
   password = '';
   errorMessage = '';
+  loggedInUser: User | null = null;
 
   constructor(private userService: UserService) {}
 
   ngOnInit(): void {}
 
   onLoginSubmit(): void {
-    this.errorMessage = ''; // Clear any previous error message
+    this.errorMessage = '';
 
     if (this.email && this.password) {
       this.userService.login(this.email, this.password).subscribe(
         (response) => {
-          // Handle successful login here, e.g., navigate to another page
           console.log('Successful login:', response);
+          this.loggedInUser = response.user;
         },
         (error) => {
-          // Handle login error here and display a message
           if (error.status === 401) {
             this.errorMessage = 'Bad credentials';
           } else {

@@ -26,4 +26,7 @@
     </form>
     <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
   </div>
+  <div *ngIf="loggedInUser">
+    <p>Welcome, {{ loggedInUser.firstName }} {{ loggedInUser.lastName }}</p>
+  </div>
 </div>
