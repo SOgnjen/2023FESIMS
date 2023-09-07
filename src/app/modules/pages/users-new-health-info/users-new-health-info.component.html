@@ -1,0 +1,87 @@
+<div class="container">
+  <form (ngSubmit)="createHealthInfo()">
+    <mat-form-field appearance="fill">
+      <mat-label>Date</mat-label>
+      <input
+        matInput
+        [(ngModel)]="healthInfo.date"
+        name="date"
+        type="date"
+        required
+      />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Owners Jmbg</mat-label>
+      <input
+        matInput
+        [(ngModel)]="healthInfo.ownersJmbg"
+        name="ownersJmbg"
+        type="number"
+        required
+        [value]="loggedInUser?.jmbg"
+        readonly
+      />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Upper Blood Preassure</mat-label>
+      <input
+        matInput
+        [(ngModel)]="healthInfo.upperBloodPreassure"
+        name="upperBloodPreassure"
+        type="number"
+        required
+      />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Lower Blood Preassure</mat-label>
+      <input
+        matInput
+        [(ngModel)]="healthInfo.lowerBloodPreassure"
+        name="lowerBloodPreassure"
+        type="number"
+        required
+      />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Sugar Level</mat-label>
+      <input
+        matInput
+        [(ngModel)]="healthInfo.sugarLevel"
+        name="sugarLevel"
+        type="number"
+        required
+      />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Fat Percentage</mat-label>
+      <input
+        matInput
+        [(ngModel)]="healthInfo.fatPercentage"
+        name="fatPercentage"
+        type="number"
+        required
+      />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Weight</mat-label>
+      <input
+        matInput
+        [(ngModel)]="healthInfo.weight"
+        name="weight"
+        type="number"
+        required
+      />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Last Menstruation</mat-label>
+      <input
+        matInput
+        [(ngModel)]="healthInfo.lastMenstruation"
+        name="date"
+        type="date"
+      />
+    </mat-form-field>
+
+    <button type="submit" mat-stroked-button>Submit</button>
+  </form>
+</div>

@@ -7,12 +7,18 @@ import { User } from '../model/user.model';
   providedIn: 'root',
 })
 export class UserService {
+  private loggedInUser: User | null = null;
   apiHost: string = 'http://localhost:16177/';
   headers: HttpHeaders = new HttpHeaders({
     'Content-Type': 'application/json',
   });
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    const storedUser = localStorage.getItem('loggedInUser');
+    if (storedUser) {
+      this.loggedInUser = JSON.parse(storedUser);
+    }
+  }
 
   getUsers(): Observable<User[]> {
     return this.http.get<User[]>(this.apiHost + 'api/users', {
@@ -50,5 +56,18 @@ export class UserService {
     return this.http.post(this.apiHost + 'api/users/login', body, {
       headers: this.headers,
     });
+  }
+
+  setLoggedInUser(user: User | null) {
+    this.loggedInUser = user;
+    if (user) {
+      localStorage.setItem('loggedInUser', JSON.stringify(user));
+    } else {
+      localStorage.removeItem('loggedInUser');
+    }
+  }
+
+  getLoggedInUser(): User | null {
+    return this.loggedInUser;
   }
 }

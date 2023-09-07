@@ -47,4 +47,13 @@ export class HealthInfoService {
       }
     );
   }
+
+  getHealthInfosByOwner(ownerJmbg: number): Observable<HealthInfo[]> {
+    return this.http.get<HealthInfo[]>(
+      this.apiHost + 'ownersJmbg/' + ownerJmbg,
+      {
+        headers: this.headers,
+      }
+    );
+  }
 }

@@ -17,7 +17,9 @@ export class HomeComponent implements OnInit {
 
   constructor(private userService: UserService, private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.loggedInUser = this.userService.getLoggedInUser();
+  }
 
   onLoginSubmit(): void {
     this.errorMessage = '';
@@ -27,6 +29,7 @@ export class HomeComponent implements OnInit {
         (response) => {
           console.log('Successful login:', response);
           this.loggedInUser = response.user;
+          this.userService.setLoggedInUser(this.loggedInUser);
 
           switch (this.loggedInUser?.role) {
             case UserRole.Role_User:
