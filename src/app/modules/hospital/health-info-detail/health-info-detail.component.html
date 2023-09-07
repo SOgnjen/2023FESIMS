@@ -1,0 +1,21 @@
+<mat-card>
+  <mat-card-title>Health Info Details</mat-card-title>
+  <mat-card-content>
+    <p>Id: {{ healthInfo?.id }}</p>
+    <p>Date: {{ healthInfo?.date | date : "yyyy-MM-dd" }}</p>
+    <p>Owners Jmbg: {{ healthInfo?.ownersJmbg }}</p>
+    <p>Upper Blood Preassure: {{ healthInfo?.upperBloodPreassure }}</p>
+    <p>Lower Blood Preassure: {{ healthInfo?.lowerBloodPreassure }}</p>
+    <p>Sugar Level: {{ healthInfo?.sugarLevel }}</p>
+    <p>Fat Percentage: {{ healthInfo?.fatPercentage }}</p>
+    <p>Weight: {{ healthInfo?.weight }}</p>
+    <p>
+      Last Menstruation:
+      {{
+        isLastMenstruationValid()
+          ? (healthInfo?.lastMenstruation | date : "yyyy-MM-dd")
+          : "N/A"
+      }}
+    </p>
+  </mat-card-content>
+</mat-card>

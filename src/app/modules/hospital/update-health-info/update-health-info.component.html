@@ -1,0 +1,54 @@
+<div *ngIf="healthInfo">
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Id</mat-label>
+      <input matInput [(ngModel)]="healthInfo.id" disabled />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Date</mat-label>
+      <input matInput [(ngModel)]="healthInfo.date" disabled /> </mat-form-field
+    ><br />
+    <mat-form-field appearance="fill">
+      <mat-label>Owners Jmbg</mat-label>
+      <input
+        matInput
+        [(ngModel)]="healthInfo.ownersJmbg"
+        disabled
+      /> </mat-form-field
+    ><br />
+    <mat-form-field appearance="fill">
+      <mat-label>Upper Blood Preassure</mat-label>
+      <input
+        matInput
+        [(ngModel)]="healthInfo.upperBloodPreassure"
+      /> </mat-form-field
+    ><br />
+    <mat-form-field appearance="fill">
+      <mat-label>Lower Blood Preassure</mat-label>
+      <input
+        matInput
+        [(ngModel)]="healthInfo.lowerBloodPreassure"
+      /> </mat-form-field
+    ><br />
+    <mat-form-field appearance="fill">
+      <mat-label>Sugar Level</mat-label>
+      <input matInput [(ngModel)]="healthInfo.sugarLevel" /> </mat-form-field
+    ><br />
+    <mat-form-field appearance="fill">
+      <mat-label>Fat Percentage</mat-label>
+      <input matInput [(ngModel)]="healthInfo.fatPercentage" /> </mat-form-field
+    ><br />
+    <mat-form-field appearance="fill">
+      <mat-label>Weight</mat-label>
+      <input matInput [(ngModel)]="healthInfo.weight" /> </mat-form-field
+    ><br />
+    <mat-form-field appearance="fill">
+      <mat-label>Last Menstruation</mat-label>
+      <input
+        matInput
+        [(ngModel)]="healthInfo.lastMenstruation"
+      /> </mat-form-field
+    ><br />
+    <button mat-stroked-button (click)="updateHealthInfo()">Submit</button>
+  </div>
+</div>
