@@ -4,7 +4,9 @@ import { HealthInfo } from '../../hospital/model/health-info.model';
 import { HealthInfoService } from '../../hospital/services/health-info.service';
 import { Router } from '@angular/router';
 import { UserService } from '../../hospital/services/user.service';
-import { Chart } from 'chart.js/auto';
+import { Chart, registerables } from 'chart.js';
+
+Chart.register(...registerables);
 
 @Component({
   selector: 'app-users-health-infos',
@@ -25,8 +27,6 @@ export class UsersHealthInfosComponent implements OnInit {
   ];
   public healthInfos: HealthInfo[] = [];
 
-  @ViewChild('chartCanvas') chartCanvas!: ElementRef;
-
   constructor(
     private healthInfoService: HealthInfoService,
     private userService: UserService,
@@ -42,8 +42,7 @@ export class UsersHealthInfosComponent implements OnInit {
         .subscribe((res) => {
           this.healthInfos = res;
           this.dataSource.data = this.healthInfos;
-
-          this.createChart();
+          this.generateChart();
         });
     }
   }
@@ -52,77 +51,89 @@ export class UsersHealthInfosComponent implements OnInit {
     this.router.navigate(['/users-new-health-info']);
   }
 
-  createChart(): void {
-    const chartData = {
-      labels: this.healthInfos.map((info) => info.date),
-      datasets: [
-        {
-          label: 'Upper Blood Pressure',
-          data: this.healthInfos.map((info) => info.upperBloodPreassure),
-          borderColor: 'rgba(75, 192, 192, 1)',
-          backgroundColor: 'rgba(75, 192, 192, 0.2)',
-          fill: false,
-        },
-        {
-          label: 'Lower Blood Pressure',
-          data: this.healthInfos.map((info) => info.lowerBloodPreassure),
-          borderColor: 'rgba(255, 99, 132, 1)',
-          backgroundColor: 'rgba(255, 99, 132, 0.2)',
-          fill: false,
-        },
-        {
-          label: 'Sugar Level',
-          data: this.healthInfos.map((info) => info.sugarLevel),
-          borderColor: 'rgba(255, 206, 86, 1)',
-          backgroundColor: 'rgba(255, 206, 86, 0.2)',
-          fill: false,
-        },
-        {
-          label: 'Fat Percentage',
-          data: this.healthInfos.map((info) => info.fatPercentage),
-          borderColor: 'rgba(54, 162, 235, 1)',
-          backgroundColor: 'rgba(54, 162, 235, 0.2)',
-          fill: false,
-        },
-        {
-          label: 'Weight',
-          data: this.healthInfos.map((info) => info.weight),
-          borderColor: 'rgba(153, 102, 255, 1)',
-          backgroundColor: 'rgba(153, 102, 255, 0.2)',
-          fill: false,
-        },
-      ],
-    };
+  generateChart(): void {
+    const canvas = document.getElementById(
+      'healthInfoChart'
+    ) as HTMLCanvasElement;
+    const ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
 
-    const chartOptions: Chart.ChartOptions = {
-      scales: {
-        x: {
-          type: 'time',
-          time: {
-            unit: 'day',
-            displayFormats: {
-              day: 'YYYY-MM-DD',
+    if (ctx) {
+      const startDate = new Date();
+      startDate.setFullYear(startDate.getFullYear() - 5);
+
+      const dates = [];
+      for (let i = 0; i <= 5; i++) {
+        const currentDate = new Date(startDate);
+        currentDate.setFullYear(startDate.getFullYear() + i);
+        dates.push(currentDate.toISOString().split('T')[0]);
+      }
+
+      const upperBloodPressure = this.healthInfos.map(
+        (info) => info.upperBloodPreassure
+      );
+      const lowerBloodPressure = this.healthInfos.map(
+        (info) => info.lowerBloodPreassure
+      );
+      const sugarLevel = this.healthInfos.map((info) => info.sugarLevel);
+      const fatPercentage = this.healthInfos.map((info) => info.fatPercentage);
+      const weight = this.healthInfos.map((info) => info.weight);
+
+      new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: dates,
+          datasets: [
+            {
+              label: 'Upper Blood Pressure',
+              data: upperBloodPressure,
+              borderColor: 'rgba(75, 192, 192, 1)',
+              fill: false,
+            },
+            {
+              label: 'Lower Blood Pressure',
+              data: lowerBloodPressure,
+              borderColor: 'rgba(255, 99, 132, 1)',
+              fill: false,
+            },
+            {
+              label: 'Sugar Level',
+              data: sugarLevel,
+              borderColor: 'rgba(255, 159, 64, 1)',
+              fill: false,
+            },
+            {
+              label: 'Fat Percentage',
+              data: fatPercentage,
+              borderColor: 'rgba(54, 162, 235, 1)',
+              fill: false,
+            },
+            {
+              label: 'Weight',
+              data: weight,
+              borderColor: 'rgba(255, 206, 86, 1)',
+              fill: false,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          scales: {
+            x: {
+              title: {
+                display: true,
+                text: 'Date',
+              },
+            },
+            y: {
+              beginAtZero: true,
+              title: {
+                display: true,
+                text: 'Value',
+              },
             },
           },
-          title: {
-            display: true,
-            text: 'Date',
-          },
         },
-        y: {
-          title: {
-            display: true,
-            text: 'Values',
-          },
-        },
-      },
-    };
-
-    const ctx = this.chartCanvas.nativeElement.getContext('2d');
-    const myChart = new Chart(ctx, {
-      type: 'line',
-      data: chartData,
-      options: chartOptions,
-    });
+      });
+    }
   }
 }
