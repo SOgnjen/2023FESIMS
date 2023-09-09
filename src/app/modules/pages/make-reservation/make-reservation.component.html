@@ -1,0 +1,75 @@
+<div class="reservation-form-container">
+  <form (submit)="submitReservation()">
+    <!-- Add your form fields here -->
+    <div class="form-group">
+      <label for="doctorSelect">Select Doctor:</label>
+      <select
+        id="doctorSelect"
+        name="doctorSelect"
+        [(ngModel)]="selectedDoctorId"
+      >
+        <option *ngFor="let doctor of doctors" [value]="doctor.jmbg">
+          {{ doctor.firstName }} {{ doctor.lastName }}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="appointmentDate">Select Appointment Date:</label>
+      <input
+        type="date"
+        id="appointmentDate"
+        name="appointmentDate"
+        [(ngModel)]="selectedAppointmentDate"
+        (ngModelChange)="formatDate()"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="priority">Priority:</label>
+      <input
+        type="number"
+        id="priority"
+        name="priority"
+        [(ngModel)]="selectedPriority"
+        min="1"
+        max="2"
+      />
+      <span
+        class="tooltip"
+        *ngIf="selectedPriority < 1 || selectedPriority > 2"
+      >
+        Priority should be 1 or 2.
+      </span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit Reservation</button>
+  </form>
+  <div class="form-container appointment-details-form">
+    <div *ngIf="noAppointmentsFound; else appointmentDetails">
+      <p>No Appointments found.</p>
+    </div>
+
+    <ng-template #appointmentDetails>
+      <div class="form-container">
+        <h3>Appointment Details</h3>
+        <p>ID: {{ appointment?.id }}</p>
+        <div>
+          <p>Day: {{ appointment?.date | date : "EEE, MMM d, y" }}</p>
+          <p>Time: {{ appointment?.date | date : "h:mm a" }}</p>
+        </div>
+        <button
+          class="btn btn-primary"
+          (click)="
+            reserveAppointmentTextResponse(appointment?.id, loggedInUser?.jmbg)
+          "
+        >
+          Reserve
+        </button>
+        <button class="btn btn-danger" (click)="closeAppointmentDetails()">
+          Close
+        </button>
+      </div>
+    </ng-template>
+  </div>
+</div>

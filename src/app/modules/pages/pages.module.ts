@@ -13,6 +13,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
+import { MakeReservationComponent } from './make-reservation/make-reservation.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { MatInputModule } from '@angular/material/input';
     MedicHomeComponent,
     UsersHealthInfosComponent,
     UsersNewHealthInfoComponent,
+    MakeReservationComponent,
   ],
   imports: [
     CommonModule,

@@ -29,13 +29,9 @@
       <button type="submit" class="login-button">Login</button>
     </form>
     <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
-  </div>
-  <div *ngIf="loggedInUser" class="user-info">
     <p>
-      Welcome,
-      <span class="user-name"
-        >{{ loggedInUser.firstName }} {{ loggedInUser.lastName }}</span
-      >
+      If you don't have a profile,
+      <a routerLink="/create-user">register yourself</a>.
     </p>
   </div>
 </div>

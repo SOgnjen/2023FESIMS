@@ -26,5 +26,18 @@
 >
   Go to Health Infos
 </button>
-
-<canvas #chartCanvas></canvas>
+<button
+  mat-raised-button
+  color="primary"
+  (click)="goToMakeReservation()"
+  [ngStyle]="{
+    margin: '20px auto',
+    display: 'block',
+    'background-color': 'blue',
+    color: 'white',
+    'border-radius': '5px',
+    padding: '10px 20px'
+  }"
+>
+  Make a Reservation
+</button>

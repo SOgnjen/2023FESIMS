@@ -70,4 +70,13 @@ export class UserService {
   getLoggedInUser(): User | null {
     return this.loggedInUser;
   }
+
+  getUsersByGuidanceForUser(userId: number): Observable<User[]> {
+    return this.http.get<User[]>(
+      this.apiHost + 'api/users/' + userId + '/guidance-users',
+      {
+        headers: this.headers,
+      }
+    );
+  }
 }

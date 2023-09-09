@@ -27,4 +27,8 @@ export class UserHomeComponent implements OnInit {
   goToHealthInfos() {
     this.router.navigate(['/users-health-infos']);
   }
+
+  goToMakeReservation() {
+    this.router.navigate(['/make-reservation']);
+  }
 }

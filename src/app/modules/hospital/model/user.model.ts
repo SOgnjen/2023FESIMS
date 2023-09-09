@@ -1,4 +1,5 @@
 import { Gender } from './gender.enum';
+import { GuidanceTo } from './guidance-to.enum';
 import { UserRole } from './user-role.enum';
 
 export class User {
@@ -12,6 +13,9 @@ export class User {
   phoneNumber: string = '';
   jmbg: number = 0;
   gender: Gender = Gender.Female;
+  isBlocked: boolean = false;
+  guidance: GuidanceTo = GuidanceTo.None;
+  numberOfDeclines: number = 0;
 
   public constructor(obj?: any) {
     if (obj) {
@@ -25,6 +29,9 @@ export class User {
       this.phoneNumber = obj.phoneNumber;
       this.jmbg = obj.jmbg;
       this.gender = obj.gender;
+      this.isBlocked = obj.isBlocked;
+      this.guidance = obj.guidance;
+      this.numberOfDeclines = obj.numberOfDeclines;
     }
   }
 }

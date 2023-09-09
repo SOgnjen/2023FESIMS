@@ -6,6 +6,8 @@ import { AdminHomeComponent } from './modules/pages/admin-home/admin-home.compon
 import { MedicHomeComponent } from './modules/pages/medic-home/medic-home.component';
 import { UsersHealthInfosComponent } from './modules/pages/users-health-infos/users-health-infos.component';
 import { UsersNewHealthInfoComponent } from './modules/pages/users-new-health-info/users-new-health-info.component';
+import { CreateUserComponent } from './modules/hospital/create-user/create-user.component';
+import { MakeReservationComponent } from './modules/pages/make-reservation/make-reservation.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -15,6 +17,8 @@ const routes: Routes = [
   { path: 'medic-home', component: MedicHomeComponent },
   { path: 'users-health-infos', component: UsersHealthInfosComponent },
   { path: 'users-new-health-info', component: UsersNewHealthInfoComponent },
+  { path: 'create-user', component: CreateUserComponent },
+  { path: 'make-reservation', component: MakeReservationComponent },
 ];
 
 @NgModule({
