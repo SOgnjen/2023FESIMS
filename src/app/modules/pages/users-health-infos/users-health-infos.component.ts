@@ -26,6 +26,14 @@ export class UsersHealthInfosComponent implements OnInit {
     'lastMenstruation',
   ];
   public healthInfos: HealthInfo[] = [];
+  public chartData: ChartData = {
+    labels: [],
+    upperBloodPressure: [],
+    lowerBloodPressure: [],
+    sugarLevel: [],
+    fatPercentage: [],
+    weight: [],
+  };
 
   constructor(
     private healthInfoService: HealthInfoService,
@@ -58,15 +66,9 @@ export class UsersHealthInfosComponent implements OnInit {
     const ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
 
     if (ctx) {
-      const startDate = new Date();
-      startDate.setFullYear(startDate.getFullYear() - 5);
-
-      const dates = [];
-      for (let i = 0; i <= 5; i++) {
-        const currentDate = new Date(startDate);
-        currentDate.setFullYear(startDate.getFullYear() + i);
-        dates.push(currentDate.toISOString().split('T')[0]);
-      }
+      const dates = this.healthInfos.map(
+        (info) => new Date(info.date).toISOString().split('T')[0]
+      );
 
       const upperBloodPressure = this.healthInfos.map(
         (info) => info.upperBloodPreassure
@@ -136,4 +138,13 @@ export class UsersHealthInfosComponent implements OnInit {
       });
     }
   }
+}
+
+interface ChartData {
+  labels: string[];
+  upperBloodPressure: number[];
+  lowerBloodPressure: number[];
+  sugarLevel: number[];
+  fatPercentage: number[];
+  weight: number[];
 }

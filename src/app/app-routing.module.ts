@@ -8,6 +8,7 @@ import { UsersHealthInfosComponent } from './modules/pages/users-health-infos/us
 import { UsersNewHealthInfoComponent } from './modules/pages/users-new-health-info/users-new-health-info.component';
 import { CreateUserComponent } from './modules/hospital/create-user/create-user.component';
 import { MakeReservationComponent } from './modules/pages/make-reservation/make-reservation.component';
+import { CreateHealthReviewComponent } from './modules/pages/create-health-review/create-health-review.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'users-new-health-info', component: UsersNewHealthInfoComponent },
   { path: 'create-user', component: CreateUserComponent },
   { path: 'make-reservation', component: MakeReservationComponent },
+  { path: 'create-health-review', component: CreateHealthReviewComponent },
 ];
 
 @NgModule({

@@ -1,1 +1,28 @@
-<p>medic-home works!</p>
+<mat-card>
+  <mat-card-title>Welcome {{ loggedInUser?.firstName }}</mat-card-title>
+  <mat-card-content>
+    <p>User email: {{ loggedInUser?.emails }}</p>
+    <p>First Name: {{ loggedInUser?.firstName }}</p>
+    <p>Last Name: {{ loggedInUser?.lastName }}</p>
+    <p>Address: {{ loggedInUser?.address }}</p>
+    <p>Phone Number: {{ loggedInUser?.phoneNumber }}</p>
+    <p>Jmbg: {{ loggedInUser?.jmbg }}</p>
+    <p>Gender: {{ genderText }}</p>
+  </mat-card-content>
+</mat-card>
+
+<button
+  mat-raised-button
+  color="primary"
+  (click)="goToCreateHealthReview()"
+  [ngStyle]="{
+    margin: '20px auto',
+    display: 'block',
+    'background-color': 'blue',
+    color: 'white',
+    'border-radius': '5px',
+    padding: '10px 20px'
+  }"
+>
+  Generate Health Review
+</button>

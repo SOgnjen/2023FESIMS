@@ -14,6 +14,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
 import { MakeReservationComponent } from './make-reservation/make-reservation.component';
+import { CreateHealthReviewComponent } from './create-health-review/create-health-review.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { MakeReservationComponent } from './make-reservation/make-reservation.co
     UsersHealthInfosComponent,
     UsersNewHealthInfoComponent,
     MakeReservationComponent,
+    CreateHealthReviewComponent,
   ],
   imports: [
     CommonModule,

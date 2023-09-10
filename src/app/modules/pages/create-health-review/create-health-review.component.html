@@ -1,0 +1,155 @@
+<!-- create-health-review.component.html -->
+
+<div class="container">
+  <form (ngSubmit)="createHealthReview()">
+    <div class="form-group">
+      <label for="appointmentDate">Select Appointment Date:</label>
+      <input
+        type="date"
+        id="appointmentDate"
+        name="appointmentDate"
+        [(ngModel)]="selectedAppointmentDate"
+        required
+      />
+    </div>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Patient JMBG</mat-label>
+      <input
+        matInput
+        [(ngModel)]="healthReview.patientJmbg"
+        name="patientJmbg"
+        required
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Diagnosis</mat-label>
+      <input
+        matInput
+        [(ngModel)]="healthReview.diagnosis"
+        name="diagnosis"
+        required
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Cure</mat-label>
+      <textarea
+        matInput
+        [(ngModel)]="healthReview.cure"
+        name="cure"
+        required
+        rows="4"
+        style="resize: vertical"
+      ></textarea>
+    </mat-form-field>
+
+    <div class="button-container">
+      <button mat-raised-button>Submit Health Review</button>
+    </div>
+  </form>
+
+  <div class="show-form-container">
+    <button mat-raised-button color="primary" (click)="showForm = !showForm">
+      {{ showForm ? "Close Health Info Form" : "New Health Info" }}
+    </button>
+  </div>
+
+  <!-- Separate form for Health Info -->
+  <div class="container" *ngIf="showForm">
+    <form (ngSubmit)="createHealthInfo()">
+      <mat-form-field appearance="fill">
+        <mat-label>Date</mat-label>
+        <input
+          matInput
+          [(ngModel)]="healthInfo.date"
+          name="date"
+          type="date"
+          required
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Owners JMBG</mat-label>
+        <input
+          matInput
+          [(ngModel)]="healthInfo.ownersJmbg"
+          name="ownersJmbg"
+          type="number"
+          required
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Upper Blood Preassure</mat-label>
+        <input
+          matInput
+          [(ngModel)]="healthInfo.upperBloodPreassure"
+          name="upperBloodPreassure"
+          type="number"
+          required
+        />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Lower Blood Preassure</mat-label>
+        <input
+          matInput
+          [(ngModel)]="healthInfo.lowerBloodPreassure"
+          name="lowerBloodPreassure"
+          type="number"
+          required
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Sugar Level</mat-label>
+        <input
+          matInput
+          [(ngModel)]="healthInfo.sugarLevel"
+          name="sugarLevel"
+          type="number"
+          required
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Fat Percentage</mat-label>
+        <input
+          matInput
+          [(ngModel)]="healthInfo.fatPercentage"
+          name="fatPercentage"
+          type="number"
+          required
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Weight</mat-label>
+        <input
+          matInput
+          [(ngModel)]="healthInfo.weight"
+          name="weight"
+          type="number"
+          required
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Last Menstruation</mat-label>
+        <input
+          matInput
+          [(ngModel)]="healthInfo.lastMenstruation"
+          name="lastMenstruation"
+          type="date"
+          disabled
+          value="1900-01-01"
+        />
+      </mat-form-field>
+
+      <div class="button-container">
+        <button type="submit" mat-raised-button>Submit Health Info</button>
+      </div>
+    </form>
+  </div>
+</div>
