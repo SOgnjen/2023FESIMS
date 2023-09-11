@@ -100,4 +100,12 @@ export class UserService {
       headers: this.headers,
     });
   }
+
+  blockUser(userId: number): Observable<User> {
+    const url = `${this.apiHost}api/users/block-user/${userId}`;
+
+    return this.http.put<User>(url, null, {
+      headers: this.headers,
+    });
+  }
 }

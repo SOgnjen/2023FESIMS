@@ -8,6 +8,9 @@
         <th>First Name</th>
         <th>Last Name</th>
         <th>Number of Declines</th>
+        <th>Blocked</th>
+        <th>Action</th>
+        <!-- Add an additional column for actions -->
       </tr>
     </thead>
     <tbody>
@@ -17,6 +20,13 @@
         <td>{{ user.firstName }}</td>
         <td>{{ user.lastName }}</td>
         <td>{{ user.numberOfDeclines }}</td>
+        <td>{{ user.isBlocked }}</td>
+        <td>
+          <button (click)="toggleBlockUser(user)" class="btn btn-danger">
+            {{ user.isBlocked ? "Unblock" : "Block" }}
+            <!-- Toggle button text based on user's blocked status -->
+          </button>
+        </td>
       </tr>
     </tbody>
   </table>

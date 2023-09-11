@@ -22,4 +22,23 @@ export class BadUsersComponent implements OnInit {
       }
     );
   }
+
+  toggleBlockUser(user: User) {
+    this.userService.blockUser(user.id).subscribe(
+      (updatedUser) => {
+        // User has been successfully blocked/unblocked
+        // Update the user's status locally
+        user.isBlocked = updatedUser.isBlocked;
+
+        // Toggle the button text
+        const button = document.getElementById(`blockButton_${user.id}`);
+        if (button) {
+          button.textContent = updatedUser.isBlocked ? 'Unblock' : 'Block';
+        }
+      },
+      (error) => {
+        console.error('Failed to block/unblock user:', error);
+      }
+    );
+  }
 }
