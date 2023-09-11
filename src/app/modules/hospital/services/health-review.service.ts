@@ -54,4 +54,13 @@ export class HealthReviewService {
       }
     );
   }
+
+  getHealthReviewsByPatient(patientsJmbg: number): Observable<HealthReview[]> {
+    return this.http.get<HealthReview[]>(
+      this.apiHost + 'patientsJmbg/' + patientsJmbg,
+      {
+        headers: this.headers,
+      }
+    );
+  }
 }

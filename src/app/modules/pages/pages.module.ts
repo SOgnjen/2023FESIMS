@@ -15,6 +15,9 @@ import { MatTableModule } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
 import { MakeReservationComponent } from './make-reservation/make-reservation.component';
 import { CreateHealthReviewComponent } from './create-health-review/create-health-review.component';
+import { UsersHealthReviewsComponent } from './users-health-reviews/users-health-reviews.component';
+import { UsersPreviousAppointmentsComponent } from './users-previous-appointments/users-previous-appointments.component';
+import { UsersFutureAppointmentsComponent } from './users-future-appointments/users-future-appointments.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +29,9 @@ import { CreateHealthReviewComponent } from './create-health-review/create-healt
     UsersNewHealthInfoComponent,
     MakeReservationComponent,
     CreateHealthReviewComponent,
+    UsersHealthReviewsComponent,
+    UsersPreviousAppointmentsComponent,
+    UsersFutureAppointmentsComponent,
   ],
   imports: [
     CommonModule,

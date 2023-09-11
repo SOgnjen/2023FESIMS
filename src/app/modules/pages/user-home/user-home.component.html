@@ -41,3 +41,51 @@
 >
   Make a Reservation
 </button>
+
+<button
+  mat-raised-button
+  color="primary"
+  (click)="goToHealthReviews()"
+  [ngStyle]="{
+    margin: '20px auto',
+    display: 'block',
+    'background-color': 'blue',
+    color: 'white',
+    'border-radius': '5px',
+    padding: '10px 20px'
+  }"
+>
+  Go to Health Reviews
+</button>
+
+<button
+  mat-raised-button
+  color="primary"
+  (click)="goToPreviousAppointments()"
+  [ngStyle]="{
+    margin: '20px auto',
+    display: 'block',
+    'background-color': 'blue',
+    color: 'white',
+    'border-radius': '5px',
+    padding: '10px 20px'
+  }"
+>
+  Go to Previous Appointments
+</button>
+
+<button
+  mat-raised-button
+  color="primary"
+  (click)="goToFutureAppointments()"
+  [ngStyle]="{
+    margin: '20px auto',
+    display: 'block',
+    'background-color': 'blue',
+    color: 'white',
+    'border-radius': '5px',
+    padding: '10px 20px'
+  }"
+>
+  Go to Future Appointments
+</button>

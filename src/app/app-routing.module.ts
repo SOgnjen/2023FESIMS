@@ -9,6 +9,9 @@ import { UsersNewHealthInfoComponent } from './modules/pages/users-new-health-in
 import { CreateUserComponent } from './modules/hospital/create-user/create-user.component';
 import { MakeReservationComponent } from './modules/pages/make-reservation/make-reservation.component';
 import { CreateHealthReviewComponent } from './modules/pages/create-health-review/create-health-review.component';
+import { UsersHealthReviewsComponent } from './modules/pages/users-health-reviews/users-health-reviews.component';
+import { UsersPreviousAppointmentsComponent } from './modules/pages/users-previous-appointments/users-previous-appointments.component';
+import { UsersFutureAppointmentsComponent } from './modules/pages/users-future-appointments/users-future-appointments.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -21,6 +24,15 @@ const routes: Routes = [
   { path: 'create-user', component: CreateUserComponent },
   { path: 'make-reservation', component: MakeReservationComponent },
   { path: 'create-health-review', component: CreateHealthReviewComponent },
+  { path: 'users-health-reviews', component: UsersHealthReviewsComponent },
+  {
+    path: 'users-previous-appointments',
+    component: UsersPreviousAppointmentsComponent,
+  },
+  {
+    path: 'users-future-appointments',
+    component: UsersFutureAppointmentsComponent,
+  },
 ];
 
 @NgModule({

@@ -31,4 +31,16 @@ export class UserHomeComponent implements OnInit {
   goToMakeReservation() {
     this.router.navigate(['/make-reservation']);
   }
+
+  goToHealthReviews() {
+    this.router.navigate(['/users-health-reviews']);
+  }
+
+  goToPreviousAppointments() {
+    this.router.navigate(['/users-previous-appointments']);
+  }
+
+  goToFutureAppointments() {
+    this.router.navigate(['/users-future-appointments']);
+  }
 }

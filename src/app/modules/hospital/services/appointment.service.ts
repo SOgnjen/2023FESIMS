@@ -77,7 +77,6 @@ export class AppointmentService {
         PatientJmbg: userJmbg,
       };
 
-      // Note: responseType is set to 'text' to handle plain text response
       return this.http.post(url, body, {
         headers: this.headers,
         responseType: 'text', // Set responseType to 'text'
@@ -86,5 +85,23 @@ export class AppointmentService {
       console.error('Invalid appointmentId or userJmbg.');
       return of('Invalid appointmentId or userJmbg.'); // Return an observable with an error message
     }
+  }
+
+  getPreviousAppointments(patientJmbg: number): Observable<Appointment[]> {
+    return this.http.get<Appointment[]>(
+      `${this.apiHost}api/appointments/previous/${patientJmbg}`,
+      {
+        headers: this.headers,
+      }
+    );
+  }
+
+  getFutureAppointments(patientJmbg: number): Observable<Appointment[]> {
+    return this.http.get<Appointment[]>(
+      `${this.apiHost}api/appointments/future/${patientJmbg}`,
+      {
+        headers: this.headers,
+      }
+    );
   }
 }

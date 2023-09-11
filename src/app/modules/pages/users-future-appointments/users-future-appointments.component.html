@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="table-header">
+    <p class="table-title">Appointments</p>
+  </div>
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Doctor JMBG</th>
+        <!-- Include the Doctor JMBG here -->
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let appointment of appointments">
+        <td>{{ appointment.id }}</td>
+        <td>{{ appointment.doctorJmbg }}</td>
+        <!-- Display Doctor JMBG here -->
+        <td>{{ appointment.date | date : "yyyy-MM-dd" }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

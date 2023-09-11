@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="table-header">
+    <p class="table-title">Health Reviews</p>
+  </div>
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Date</th>
+        <th>Patient JMBG</th>
+        <th>Diagnosis</th>
+        <th>Cure</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let healthReview of healthReviews">
+        <td>{{ healthReview.id }}</td>
+        <td>{{ healthReview.date | date : "yyyy-MM-dd" }}</td>
+        <td>{{ healthReview.patientJmbg }}</td>
+        <td>{{ healthReview.diagnosis }}</td>
+        <td>{{ healthReview.cure }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
