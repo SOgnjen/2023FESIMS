@@ -12,6 +12,8 @@ import { CreateHealthReviewComponent } from './modules/pages/create-health-revie
 import { UsersHealthReviewsComponent } from './modules/pages/users-health-reviews/users-health-reviews.component';
 import { UsersPreviousAppointmentsComponent } from './modules/pages/users-previous-appointments/users-previous-appointments.component';
 import { UsersFutureAppointmentsComponent } from './modules/pages/users-future-appointments/users-future-appointments.component';
+import { NewMedicBlogComponent } from './modules/pages/new-medic-blog/new-medic-blog.component';
+import { BadUsersComponent } from './modules/pages/bad-users/bad-users.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -25,6 +27,8 @@ const routes: Routes = [
   { path: 'make-reservation', component: MakeReservationComponent },
   { path: 'create-health-review', component: CreateHealthReviewComponent },
   { path: 'users-health-reviews', component: UsersHealthReviewsComponent },
+  { path: 'new-medic-blog', component: NewMedicBlogComponent },
+  { path: 'bad-users', component: BadUsersComponent },
   {
     path: 'users-previous-appointments',
     component: UsersPreviousAppointmentsComponent,

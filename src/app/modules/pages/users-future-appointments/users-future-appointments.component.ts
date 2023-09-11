@@ -3,6 +3,7 @@ import { User } from '../../hospital/model/user.model';
 import { Appointment } from '../../hospital/model/appointment.model';
 import { AppointmentService } from '../../hospital/services/appointment.service';
 import { UserService } from '../../hospital/services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-users-future-appointments',
@@ -15,7 +16,8 @@ export class UsersFutureAppointmentsComponent implements OnInit {
 
   constructor(
     private appointmentService: AppointmentService,
-    private userService: UserService
+    private userService: UserService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -33,5 +35,35 @@ export class UsersFutureAppointmentsComponent implements OnInit {
           this.appointments = appointments;
         });
     }
+  }
+
+  declineAppointment(appointmentId: number): void {
+    this.appointmentService.declineAppointment(appointmentId).subscribe(
+      (response) => {
+        console.log('Appointment declined successfully:', response);
+
+        if (this.user) {
+          this.userService
+            .updateNumberOfDeclines(
+              this.user.id,
+              this.user.numberOfDeclines + 1
+            )
+            .subscribe(
+              (updatedUser) => {
+                console.log(
+                  'User updated with new numberOfDeclines:',
+                  updatedUser
+                );
+              },
+              (error) => {
+                console.error('Error updating user:', error);
+              }
+            );
+        }
+      },
+      (error) => {
+        console.error('Error declining appointment:', error);
+      }
+    );
   }
 }

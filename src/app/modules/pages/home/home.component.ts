@@ -38,6 +38,15 @@ export class HomeComponent implements OnInit {
             case UserRole.Role_Medic:
               this.router.navigate(['medic-home']);
               break;
+            case UserRole.Role_Dermatologist:
+              this.router.navigate(['medic-home']);
+              break;
+            case UserRole.Role_Neurologist:
+              this.router.navigate(['medic-home']);
+              break;
+            case UserRole.Role_Psychiatrist:
+              this.router.navigate(['medic-home']);
+              break;
             case UserRole.Role_Administrator:
               this.router.navigate(['admin-home']);
               break;

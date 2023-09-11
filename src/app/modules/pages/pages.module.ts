@@ -18,6 +18,8 @@ import { CreateHealthReviewComponent } from './create-health-review/create-healt
 import { UsersHealthReviewsComponent } from './users-health-reviews/users-health-reviews.component';
 import { UsersPreviousAppointmentsComponent } from './users-previous-appointments/users-previous-appointments.component';
 import { UsersFutureAppointmentsComponent } from './users-future-appointments/users-future-appointments.component';
+import { NewMedicBlogComponent } from './new-medic-blog/new-medic-blog.component';
+import { BadUsersComponent } from './bad-users/bad-users.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { UsersFutureAppointmentsComponent } from './users-future-appointments/us
     UsersHealthReviewsComponent,
     UsersPreviousAppointmentsComponent,
     UsersFutureAppointmentsComponent,
+    NewMedicBlogComponent,
+    BadUsersComponent,
   ],
   imports: [
     CommonModule,

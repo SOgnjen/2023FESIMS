@@ -22,4 +22,8 @@ export class MedicHomeComponent implements OnInit {
   goToCreateHealthReview() {
     this.router.navigate(['/create-health-review']);
   }
+
+  goToCreateNewBlog() {
+    this.router.navigate(['/new-medic-blog']);
+  }
 }

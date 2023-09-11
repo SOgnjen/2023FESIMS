@@ -1,0 +1,26 @@
+<div class="blog-form-container">
+  <h2>Create a New Blog Post</h2>
+  <form (submit)="createBlogPost()">
+    <div class="form-group">
+      <label for="title">Title:</label>
+      <input
+        type="text"
+        id="title"
+        name="title"
+        [(ngModel)]="blogTitle"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="text">Blog Text:</label>
+      <textarea
+        id="text"
+        name="text"
+        [(ngModel)]="blogText"
+        rows="4"
+        required
+      ></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Create Blog Post</button>
+  </form>
+</div>

@@ -104,4 +104,13 @@ export class AppointmentService {
       }
     );
   }
+
+  declineAppointment(appointmentId: number): Observable<string> {
+    const url = `${this.apiHost}api/appointments/decline/${appointmentId}`;
+
+    return this.http.post(url, null, {
+      headers: this.headers,
+      responseType: 'text',
+    });
+  }
 }

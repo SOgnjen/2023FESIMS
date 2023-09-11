@@ -79,4 +79,25 @@ export class UserService {
       }
     );
   }
+
+  updateNumberOfDeclines(
+    userId: number,
+    numberOfDeclines: number
+  ): Observable<User> {
+    const url = `${this.apiHost}api/users/update-declines/${userId}`;
+
+    const updatedUser = { numberOfDeclines };
+
+    return this.http.put<User>(url, updatedUser, {
+      headers: this.headers,
+    });
+  }
+
+  getAllBadUsers(): Observable<User[]> {
+    const url = `${this.apiHost}api/users/all-bad-users`;
+
+    return this.http.get<User[]>(url, {
+      headers: this.headers,
+    });
+  }
 }

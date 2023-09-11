@@ -7,16 +7,26 @@
       <tr>
         <th>ID</th>
         <th>Doctor JMBG</th>
-        <!-- Include the Doctor JMBG here -->
         <th>Date</th>
+        <th>Action</th>
+        <!-- Add a new column for the decline button -->
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let appointment of appointments">
         <td>{{ appointment.id }}</td>
         <td>{{ appointment.doctorJmbg }}</td>
-        <!-- Display Doctor JMBG here -->
         <td>{{ appointment.date | date : "yyyy-MM-dd" }}</td>
+        <td>
+          <!-- Add a button for declining the appointment -->
+          <button
+            mat-raised-button
+            color="warn"
+            (click)="declineAppointment(appointment.id)"
+          >
+            Decline
+          </button>
+        </td>
       </tr>
     </tbody>
   </table>
