@@ -92,3 +92,36 @@ body {
   font-weight: bold;
   color: #007bff;
 }
+
+/* Add these styles to your component's CSS file */
+
+/* Style for the container of accepted information */
+.accepted-information {
+  background-color: #f0f0f0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-top: 20px;
+  border-radius: 5px;
+}
+
+/* Style for each accepted information item */
+.accepted-information ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.accepted-information li {
+  margin-bottom: 10px;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  background-color: #fff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for the "New Date for Blood Donation" label */
+.accepted-information li strong {
+  color: #ff5722; /* You can choose your preferred color */
+  font-weight: bold;
+  margin-right: 5px;
+}

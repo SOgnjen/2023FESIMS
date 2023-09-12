@@ -20,6 +20,7 @@ import { UsersPreviousAppointmentsComponent } from './users-previous-appointment
 import { UsersFutureAppointmentsComponent } from './users-future-appointments/users-future-appointments.component';
 import { NewMedicBlogComponent } from './new-medic-blog/new-medic-blog.component';
 import { BadUsersComponent } from './bad-users/bad-users.component';
+import { WaitingInformationsComponent } from './waiting-informations/waiting-informations.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { BadUsersComponent } from './bad-users/bad-users.component';
     UsersFutureAppointmentsComponent,
     NewMedicBlogComponent,
     BadUsersComponent,
+    WaitingInformationsComponent,
   ],
   imports: [
     CommonModule,

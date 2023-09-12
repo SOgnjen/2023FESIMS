@@ -4,6 +4,7 @@ import { UserService } from '../../hospital/services/user.service';
 import { AppointmentService } from '../../hospital/services/appointment.service';
 import { Router } from '@angular/router';
 import { Appointment } from '../../hospital/model/appointment.model';
+import { GuidanceTo } from '../../hospital/model/guidance-to.enum';
 
 @Component({
   selector: 'app-make-reservation',
@@ -47,13 +48,12 @@ export class MakeReservationComponent implements OnInit {
 
   formatDate(): void {
     if (!this.selectedAppointmentDate) {
-      return; // Exit if selectedAppointmentDate is undefined
+      return;
     }
 
     const parsedDate = new Date(this.selectedAppointmentDate);
 
     if (!isNaN(parsedDate.getTime())) {
-      // Check if the parsed date is a valid Date object
       this.selectedAppointmentDate = parsedDate.toISOString().slice(0, 10);
     }
   }
@@ -66,7 +66,6 @@ export class MakeReservationComponent implements OnInit {
     ) {
       console.log('Button clicked');
 
-      // Parse the selectedAppointmentDate as a Date object
       const parsedDate = new Date(this.selectedAppointmentDate);
 
       this.appointmentService
@@ -80,6 +79,19 @@ export class MakeReservationComponent implements OnInit {
             if (result) {
               this.appointment = result;
               this.noAppointmentsFound = false;
+
+              // Update the logged-in user's guidance to None
+              if (this.loggedInUser) {
+                this.loggedInUser.guidance = GuidanceTo.None;
+                this.userService.updateUser(this.loggedInUser).subscribe(
+                  () => {
+                    console.log('Guidance updated to None for logged-in user.');
+                  },
+                  (error) => {
+                    console.error('Error updating guidance:', error);
+                  }
+                );
+              }
             } else {
               this.noAppointmentsFound = true;
               this.appointment = null;
@@ -102,21 +114,15 @@ export class MakeReservationComponent implements OnInit {
       .reserveAppointmentTextResponse(appointmentId, userJmbg)
       .subscribe(
         (response) => {
-          // Handle the plain text response here
           console.log('Appointment reserved successfully.', response);
-
-          // You can update your UI or perform any other necessary actions.
         },
         (error) => {
           console.error('Error reserving appointment:', error);
-          // Handle the error appropriately (e.g., show an error message).
         }
       );
   }
 
   closeAppointmentDetails(): void {
-    // Implement the logic to close the appointment details here
-    // You can reset the 'appointment' and 'noAppointmentsFound' variables
     this.appointment = null;
     this.noAppointmentsFound = true;
   }

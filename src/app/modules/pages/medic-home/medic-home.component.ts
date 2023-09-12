@@ -26,4 +26,8 @@ export class MedicHomeComponent implements OnInit {
   goToCreateNewBlog() {
     this.router.navigate(['/new-medic-blog']);
   }
+
+  goToWaitingInformation() {
+    this.router.navigate(['/waiting-information']);
+  }
 }

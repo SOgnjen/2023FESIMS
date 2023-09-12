@@ -34,4 +34,13 @@
       <a routerLink="/create-user">register yourself</a>.
     </p>
   </div>
+  <div *ngIf="acceptedInformations.length > 0" class="accepted-information">
+    <h3>Announcements</h3>
+    <ul>
+      <li *ngFor="let info of acceptedInformations">
+        <strong>New Date for Blood Donation:</strong>
+        {{ info.when | date : "medium" }}
+      </li>
+    </ul>
+  </div>
 </div>

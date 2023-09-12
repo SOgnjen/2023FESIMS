@@ -14,28 +14,63 @@ import { UsersPreviousAppointmentsComponent } from './modules/pages/users-previo
 import { UsersFutureAppointmentsComponent } from './modules/pages/users-future-appointments/users-future-appointments.component';
 import { NewMedicBlogComponent } from './modules/pages/new-medic-blog/new-medic-blog.component';
 import { BadUsersComponent } from './modules/pages/bad-users/bad-users.component';
+import { AdminGuard } from './modules/pages/admin.guard';
+import { MedicGuard } from './modules/pages/medic.guard';
+import { UserGuard } from './modules/pages/user.guard';
+import { WaitingInformationsComponent } from './modules/pages/waiting-informations/waiting-informations.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'user-home', component: UserHomeComponent },
-  { path: 'admin-home', component: AdminHomeComponent },
-  { path: 'medic-home', component: MedicHomeComponent },
-  { path: 'users-health-infos', component: UsersHealthInfosComponent },
-  { path: 'users-new-health-info', component: UsersNewHealthInfoComponent },
+  { path: 'user-home', component: UserHomeComponent, canActivate: [UserGuard] },
+  {
+    path: 'admin-home',
+    component: AdminHomeComponent,
+    canActivate: [AdminGuard],
+  },
+  {
+    path: 'medic-home',
+    component: MedicHomeComponent,
+    canActivate: [MedicGuard],
+  },
+  {
+    path: 'users-health-infos',
+    component: UsersHealthInfosComponent,
+    canActivate: [UserGuard],
+  },
+  {
+    path: 'users-new-health-info',
+    component: UsersNewHealthInfoComponent,
+    canActivate: [UserGuard],
+  },
   { path: 'create-user', component: CreateUserComponent },
   { path: 'make-reservation', component: MakeReservationComponent },
   { path: 'create-health-review', component: CreateHealthReviewComponent },
   { path: 'users-health-reviews', component: UsersHealthReviewsComponent },
-  { path: 'new-medic-blog', component: NewMedicBlogComponent },
-  { path: 'bad-users', component: BadUsersComponent },
+  {
+    path: 'new-medic-blog',
+    component: NewMedicBlogComponent,
+    canActivate: [MedicGuard],
+  },
+  {
+    path: 'bad-users',
+    component: BadUsersComponent,
+    canActivate: [AdminGuard],
+  },
   {
     path: 'users-previous-appointments',
     component: UsersPreviousAppointmentsComponent,
+    canActivate: [UserGuard],
   },
   {
     path: 'users-future-appointments',
     component: UsersFutureAppointmentsComponent,
+    canActivate: [UserGuard],
+  },
+  {
+    path: 'waiting-information',
+    component: WaitingInformationsComponent,
+    canActivate: [AdminGuard],
   },
 ];
 

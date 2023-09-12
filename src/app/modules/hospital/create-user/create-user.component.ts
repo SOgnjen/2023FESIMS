@@ -27,6 +27,14 @@ export class CreateUserComponent {
   }
 
   private isValidInput(): boolean {
-    return this.user?.emails != '' && this.user?.jmbg.toString() != '';
+    return (
+      this.user?.emails !== '' &&
+      this.user?.password !== '' &&
+      this.user?.firstName !== '' &&
+      this.user?.lastName !== '' &&
+      this.user?.address !== '' &&
+      this.user?.jmbg !== null &&
+      this.user?.gender !== null
+    );
   }
 }

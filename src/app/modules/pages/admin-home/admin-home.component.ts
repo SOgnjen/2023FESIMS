@@ -22,4 +22,8 @@ export class AdminHomeComponent implements OnInit {
   goToBadUsers() {
     this.router.navigate(['/bad-users']);
   }
+
+  goToWaitingInformation() {
+    this.router.navigate(['/waiting-information']);
+  }
 }

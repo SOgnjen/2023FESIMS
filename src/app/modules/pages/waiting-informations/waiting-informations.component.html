@@ -1,0 +1,38 @@
+<!-- waiting-informations.component.html -->
+
+<div class="container">
+  <h2 class="text-center mb-4">Upcoming Dates For Blood Donation</h2>
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped text-center">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Date</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let information of waitingInformations">
+          <td>{{ information.id }}</td>
+          <td>{{ information.when | date : "medium" }}</td>
+          <td>{{ information.status }}</td>
+          <td>
+            <button
+              class="btn btn-success"
+              (click)="acceptInformation(information.id)"
+            >
+              Accept
+            </button>
+            <button
+              class="btn btn-danger"
+              (click)="declineInformation(information.id)"
+            >
+              Decline
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
