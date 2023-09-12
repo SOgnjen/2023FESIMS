@@ -66,6 +66,11 @@ export class UsersHealthInfosComponent implements OnInit {
     const ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
 
     if (ctx) {
+      // Sort the healthInfos array by date before creating the chart
+      this.healthInfos.sort(
+        (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
+      );
+
       const dates = this.healthInfos.map(
         (info) => new Date(info.date).toISOString().split('T')[0]
       );
