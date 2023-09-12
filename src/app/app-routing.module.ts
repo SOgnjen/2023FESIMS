@@ -18,6 +18,7 @@ import { AdminGuard } from './modules/pages/admin.guard';
 import { MedicGuard } from './modules/pages/medic.guard';
 import { UserGuard } from './modules/pages/user.guard';
 import { WaitingInformationsComponent } from './modules/pages/waiting-informations/waiting-informations.component';
+import { ReserveBloodAppointmentComponent } from './modules/pages/reserve-blood-appointment/reserve-blood-appointment.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -71,6 +72,11 @@ const routes: Routes = [
     path: 'waiting-information',
     component: WaitingInformationsComponent,
     canActivate: [AdminGuard],
+  },
+  {
+    path: 'reserve-blood-appointment',
+    component: ReserveBloodAppointmentComponent,
+    canActivate: [MedicGuard],
   },
 ];
 

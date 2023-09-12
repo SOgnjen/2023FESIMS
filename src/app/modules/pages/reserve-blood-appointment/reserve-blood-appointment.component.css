@@ -1,0 +1,49 @@
+/* Add some margin to the table */
+.table {
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-collapse: collapse;
+  width: 33.33%; /* Set the width to be one third of the screen */
+  margin: 0 auto; /* Center the table */
+}
+
+/* Style the table header */
+.table th {
+  background-color: #343a40;
+  color: white;
+  font-weight: bold;
+  text-align: left;
+  padding: 6px; /* Smaller padding */
+  font-size: 14px; /* Smaller font size */
+}
+
+h2.title {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+  padding: 20px;
+  margin-bottom: 100px;
+}
+
+/* Style the table rows */
+.table td {
+  padding: 4px; /* Smaller padding */
+  font-size: 13px; /* Smaller font size */
+  border-bottom: 1px solid #dee2e6;
+}
+
+/* Apply a background color to even rows for better readability */
+.table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Add some hover effect when hovering over rows */
+.table tbody tr:hover {
+  background-color: #dcdcdc;
+}

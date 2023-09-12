@@ -1,0 +1,37 @@
+<h2 class="title">Free Blood Appointments</h2>
+<div>
+  <table class="table table-bordered table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th>ID</th>
+        <th>Date</th>
+        <th>Is Free</th>
+        <th>Owner JMBG</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let appointment of freeBloodAppointments; let i = index">
+        <td>{{ appointment.id }}</td>
+        <td>{{ appointment.when | date }}</td>
+        <td>{{ appointment.isFree ? "Yes" : "No" }}</td>
+        <td>
+          <input
+            [(ngModel)]="ownerJmbgs[appointment.id]"
+            placeholder="Owner JMBG"
+            type="number"
+          />
+        </td>
+        <td>
+          <button
+            (click)="
+              reserveAppointment(appointment, ownerJmbgs[appointment.id])
+            "
+          >
+            Reserve
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

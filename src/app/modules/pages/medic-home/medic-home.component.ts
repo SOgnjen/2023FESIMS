@@ -27,7 +27,7 @@ export class MedicHomeComponent implements OnInit {
     this.router.navigate(['/new-medic-blog']);
   }
 
-  goToWaitingInformation() {
-    this.router.navigate(['/waiting-information']);
+  goToReserveBloodAppointment() {
+    this.router.navigate(['/reserve-blood-appointment']);
   }
 }
